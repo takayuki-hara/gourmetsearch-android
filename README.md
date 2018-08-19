@@ -1,0 +1,2 @@
+# gourmetsearch-android
+Androidの習得を目的とした飲食店検索アプリ
