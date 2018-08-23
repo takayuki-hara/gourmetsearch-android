@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_search.*
+import android.content.Intent
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+
 
 class SearchActivity : AppCompatActivity() {
 
@@ -31,6 +34,14 @@ class SearchActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+        licenseButton.setOnClickListener {
+            print("onclicklistere")
+
+
+            val intent = Intent(application, OssLicensesMenuActivity::class.java)
+            intent.putExtra("title", "オープンソースライセンス")
+            startActivity(intent)
+        }
 
 //        // FCMトークンの取得
 //        val task = FirebaseInstanceId.getInstance().instanceId
