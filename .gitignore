@@ -62,7 +62,7 @@ obj/
 /out/
 
 # User-specific configurations
-.idea/*.xml
+.idea/*
 
 # OS-specific files
 .DS_Store
