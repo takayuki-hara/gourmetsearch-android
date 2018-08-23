@@ -30,5 +30,12 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
+//        // FCMトークンの取得
+//        val task = FirebaseInstanceId.getInstance().instanceId
+//        task.addOnSuccessListener { token ->
+//            Log.d("FCM", "Refreshed token: " + token)
+//        }
     }
 }
