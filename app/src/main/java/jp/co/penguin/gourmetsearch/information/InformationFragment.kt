@@ -28,6 +28,16 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class InformationFragment : Fragment() {
+
+    /**
+     * WebContentActivityに渡すURL
+     */
+    enum class WebContent(val url: String) {
+        TERMS("https://gourmetsearch-dev.firebaseapp.com/policies/terms.html"),
+        PRIVACY("https://gourmetsearch-dev.firebaseapp.com/policies/privacy.html"),
+        GUIDELINE("https://gourmetsearch-dev.firebaseapp.com/policies/guideline.html")
+    }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -54,6 +64,11 @@ class InformationFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.termButton.setOnClickListener {
+            val intent = Intent(activity, WebContentActivity::class.java)
+            intent.putExtra(EXTRA_DATA, WebContent.TERMS.url)
+            startActivity(intent)
+        }
         return view
     }
 
@@ -93,6 +108,8 @@ class InformationFragment : Fragment() {
 //    }
 
     companion object {
+        public const val EXTRA_DATA = "information.url"
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
