@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.mypage
+package jp.co.penguin.gourmetsearch.search
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

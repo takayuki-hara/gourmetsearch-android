@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v4.app.FragmentManager
 import android.view.MenuItem
 import jp.co.penguin.gourmetsearch.R
-import jp.co.penguin.gourmetsearch.mypage.SearchResultFragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_search_result.*
 
 class SearchResultActivity : AppCompatActivity() {

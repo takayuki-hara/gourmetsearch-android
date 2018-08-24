@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch
+package jp.co.penguin.gourmetsearch.util
 
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
