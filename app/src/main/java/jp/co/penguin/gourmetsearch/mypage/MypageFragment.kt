@@ -4,10 +4,12 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import jp.co.penguin.gourmetsearch.R
+import kotlinx.android.synthetic.main.fragment_mypage.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,10 +46,11 @@ class MypageFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val transaction = childFragmentManager.beginTransaction()
-        val childFragment = FavoriteFragment()
-        transaction.add(R.id.contentFrame, childFragment, "child")
-        transaction.commit()
+
+        val fragmentManager : FragmentManager = childFragmentManager
+        val adapter = MypageFragmentPagerAdapter(fragmentManager)
+        viewPager.adapter = adapter
+        tabLayout.setupWithViewPager(viewPager)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
