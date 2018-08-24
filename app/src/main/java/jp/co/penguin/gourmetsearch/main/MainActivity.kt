@@ -16,20 +16,20 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                message.setText(R.string.title_home)
+            R.id.navigation_search -> {
+                message.setText(R.string.title_search)
                 val fragment = SearchFragment.newInstance(param1 = "", param2 = "")
                 supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+            R.id.navigation_mypage -> {
+                message.setText(R.string.title_mypage)
                 val fragment = MypageFragment.newInstance(param1 = "", param2 = "")
                 supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+            R.id.navigation_information -> {
+                message.setText(R.string.title_information)
                 val fragment = InformationFragment.newInstance(param1 = "", param2 = "")
                 supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
