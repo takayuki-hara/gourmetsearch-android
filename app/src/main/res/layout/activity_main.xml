@@ -33,12 +33,20 @@
         android:id="@+id/licenseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="167dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="32dp"
         android:text="License"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/contentFrame"
+        android:layout_width="368dp"
+        android:layout_height="359dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="88dp">
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

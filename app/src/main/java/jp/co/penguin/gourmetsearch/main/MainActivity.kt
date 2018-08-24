@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import jp.co.penguin.gourmetsearch.R
+import jp.co.penguin.gourmetsearch.search.SearchFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,14 +16,20 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_home -> {
                 message.setText(R.string.title_home)
+                val fragment = SearchFragment.newInstance(param1 = "", param2 = "")
+                supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
                 message.setText(R.string.title_dashboard)
+                val fragment = SearchFragment.newInstance(param1 = "", param2 = "")
+                supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
                 message.setText(R.string.title_notifications)
+                val fragment = SearchFragment.newInstance(param1 = "", param2 = "")
+                supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -34,6 +41,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        if (savedInstanceState == null) {
+            val manager = supportFragmentManager
+            val transaction = manager.beginTransaction()
+            transaction.replace(R.id.contentFrame, SearchFragment())
+            transaction.commit()
+        }
 
         licenseButton.setOnClickListener {
             print("onclicklistere")
