@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import jp.co.penguin.gourmetsearch.R
-import jp.co.penguin.gourmetsearch.information.InformationFragment
 import kotlinx.android.synthetic.main.activity_web_content.*
 
 
