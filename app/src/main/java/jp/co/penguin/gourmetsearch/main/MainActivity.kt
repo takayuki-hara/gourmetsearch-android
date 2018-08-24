@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import jp.co.penguin.gourmetsearch.R
+import jp.co.penguin.gourmetsearch.mypage.MypageFragment
 import jp.co.penguin.gourmetsearch.search.SearchFragment
 
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_dashboard -> {
                 message.setText(R.string.title_dashboard)
-                val fragment = SearchFragment.newInstance(param1 = "", param2 = "")
+                val fragment = MypageFragment.newInstance(param1 = "", param2 = "")
                 supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
