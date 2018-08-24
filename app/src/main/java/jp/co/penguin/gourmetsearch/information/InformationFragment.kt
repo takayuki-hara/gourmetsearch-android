@@ -56,9 +56,6 @@ class InformationFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_information, container, false)
 
         view.licenseButton.setOnClickListener {
-            print("onclicklistere")
-
-
             val intent = Intent(activity, OssLicensesMenuActivity::class.java)
             intent.putExtra("title", "オープンソースライセンス")
             startActivity(intent)
