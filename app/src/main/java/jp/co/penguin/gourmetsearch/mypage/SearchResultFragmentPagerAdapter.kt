@@ -3,13 +3,14 @@ package jp.co.penguin.gourmetsearch.mypage
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import jp.co.penguin.gourmetsearch.search.SearchResultListFragment
 
-class MypageFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+class SearchResultFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         when (position) {
-            0 -> return FavoriteFragment()
-            1 -> return HistoryFragment()
-            else -> return FavoriteFragment()
+            0 -> return SearchResultListFragment()
+            1 -> return SearchResultListFragment()
+            else -> return SearchResultListFragment()
         }
     }
 
@@ -19,9 +20,9 @@ class MypageFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm
 
     override fun getPageTitle(position: Int): CharSequence? {
         when (position) {
-            0 -> return "お気に入り"
-            1 -> return "検索履歴"
-            else -> return "お気に入り"
+            0 -> return "リスト"
+            1 -> return "地図"
+            else -> return "リスト"
         }
     }
 }
