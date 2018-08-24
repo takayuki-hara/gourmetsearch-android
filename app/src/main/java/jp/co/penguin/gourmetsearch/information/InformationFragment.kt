@@ -1,14 +1,17 @@
 package jp.co.penguin.gourmetsearch.information
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 import jp.co.penguin.gourmetsearch.R
+import kotlinx.android.synthetic.main.fragment_information.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,8 +43,18 @@ class InformationFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_information, container, false)
+        val view = inflater.inflate(R.layout.fragment_information, container, false)
+
+        view.licenseButton.setOnClickListener {
+            print("onclicklistere")
+
+
+            val intent = Intent(activity, OssLicensesMenuActivity::class.java)
+            intent.putExtra("title", "オープンソースライセンス")
+            startActivity(intent)
+        }
+
+        return view
     }
 
     // TODO: Rename method, update argument and hook method into UI event
