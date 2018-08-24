@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch
+package jp.co.penguin.gourmetsearch.main
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import jp.co.penguin.gourmetsearch.R
 
 
 class MainActivity : AppCompatActivity() {
