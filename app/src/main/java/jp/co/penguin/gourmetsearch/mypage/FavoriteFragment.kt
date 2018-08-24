@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import jp.co.penguin.gourmetsearch.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,13 +18,13 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [MypageFragment.OnFragmentInteractionListener] interface
+ * [FavoriteFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [MypageFragment.newInstance] factory method to
+ * Use the [FavoriteFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class MypageFragment : Fragment() {
+class FavoriteFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,15 +40,8 @@ class MypageFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_mypage, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        val transaction = childFragmentManager.beginTransaction()
-        val childFragment = FavoriteFragment()
-        transaction.add(R.id.contentFrame, childFragment, "child")
-        transaction.commit()
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -92,12 +86,12 @@ class MypageFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MypageFragment.
+         * @return A new instance of fragment FavoriteFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                MypageFragment().apply {
+                FavoriteFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)
