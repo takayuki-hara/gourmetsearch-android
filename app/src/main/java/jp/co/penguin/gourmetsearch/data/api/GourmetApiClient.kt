@@ -14,7 +14,7 @@ class GourmetApiClient {
             return
         }
         val provider = GourmetApiServiceProvider().createProvider()
-        provider.gourmetSearch(key = key, keyword = keyword, format = "json").enqueue(object : Callback<GourmetSearchResponse> {
+        provider.gourmetSearch(key = key, keyword = keyword, lat = 35.67, lng = 139.76, format = "json").enqueue(object : Callback<GourmetSearchResponse> {
             override fun onFailure(call: Call<GourmetSearchResponse>?, t: Throwable?) {
                 Log.e("Err", "network error!")
             }
