@@ -10,4 +10,5 @@
     <string name="title_mypage">マイページ</string>
     <string name="title_information">アプリ情報</string>
     <string name="btn_search">検索する</string>
+    <string name="text_image">店舗画像</string>
 </resources>

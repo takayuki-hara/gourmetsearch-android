@@ -66,7 +66,14 @@ data class Shop (
 
         var urls: Urls? = null,
 
-        var photo: Photo? = null
+        var photo: Photo? = null,
 
-        // open以下は省略
+        var open: String? = null,
+
+        // closeからmidnightは省略
+
+        @SerializedName("shop_detail_memo")
+        var shopDetailMemo: String? = null
+
+        // coupon_urlsは省略
 )

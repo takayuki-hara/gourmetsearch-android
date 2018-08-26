@@ -22,10 +22,11 @@ class SearchResultActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
 
-        val client = GourmetApiClient()
-        client.gourmetSearch(keyword = "焼き鳥", loaded = {
-            print(it.toString())
-        })
+//        // 最終的にはここで取得してフラグメントに渡すようにしたい
+//        val client = GourmetApiClient()
+//        client.gourmetSearch(keyword = "焼き鳥", loaded = {
+//            print(it.toString())
+//        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
