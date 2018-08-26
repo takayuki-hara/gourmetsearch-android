@@ -1,7 +1,7 @@
 package jp.co.penguin.gourmetsearch.data.api
 
 import android.util.Log
-import jp.co.penguin.gourmetsearch.data.entity.GourmetSearchResponse
+import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

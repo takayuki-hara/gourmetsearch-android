@@ -1,6 +1,6 @@
 package jp.co.penguin.gourmetsearch.data.samplecode
 
-import jp.co.penguin.gourmetsearch.data.entity.GourmetSearchResponse
+import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

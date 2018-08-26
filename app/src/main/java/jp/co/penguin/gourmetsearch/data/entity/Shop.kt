@@ -2,26 +2,6 @@ package jp.co.penguin.gourmetsearch.data.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class GourmetSearchResponse (
-        var results: GourmetSearchResult
-)
-
-data class GourmetSearchResult (
-        @SerializedName("api_version")
-        var apiVersion: String? = null,
-
-        @SerializedName("results_returned")
-        var resultsReturned: String? = null,
-
-        @SerializedName("results_start")
-        var resultsStart: Int = 0,
-
-        @SerializedName("results_available")
-        var resultsAvailable: Int = 0,
-
-        var shop: List<Shop>? = null
-)
-
 data class Shop (
         var id: String? = null,
 
@@ -89,45 +69,4 @@ data class Shop (
         var photo: Photo? = null
 
         // open以下は省略
-)
-
-data class Area (
-        var code: String? = null,
-        var name: String? = null
-)
-
-data class Genre (
-        var code: String? = null,
-        var name: String? = null,
-        var catch: String? = null
-)
-
-data class Food (
-        var code: String? = null,
-        var name: String? = null
-)
-
-data class Budget (
-        var code: String? = null,
-        var name: String? = null,
-        var average: String? = null
-)
-
-data class Photo (
-        var pc: PhotoDetail? = null,
-        var mobile: PhotoDetail? = null
-)
-
-data class PhotoDetail (
-        @SerializedName("l")
-        var large: String? = null,
-        @SerializedName("m")
-        var middle: String? = null,
-        @SerializedName("s")
-        var small: String? = null
-)
-
-data class Urls (
-        var pc: String? = null,
-        var sp: String? = null
 )
