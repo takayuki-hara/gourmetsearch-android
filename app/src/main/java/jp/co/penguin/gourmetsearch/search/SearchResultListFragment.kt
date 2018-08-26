@@ -1,5 +1,6 @@
 package jp.co.penguin.gourmetsearch.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,8 @@ class SearchResultListFragment : Fragment() {
     private lateinit var listView: ListView
 
     companion object {
+        public const val EXTRA_DATA = "shop.url"
+
         fun newInstance() = SearchResultListFragment()
     }
 
@@ -51,5 +54,9 @@ class SearchResultListFragment : Fragment() {
 
     private val itemClickListener = AdapterView.OnItemClickListener { adapterView, _, position, _ ->
         val shop = adapterView.getItemAtPosition(position) as Shop
+
+        val intent = Intent(activity, ShopDetailActivity::class.java)
+        intent.putExtra(EXTRA_DATA, shop.urls?.pc)
+        startActivity(intent)
     }
 }
