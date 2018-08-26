@@ -11,6 +11,11 @@ import android.view.ViewGroup
 
 import jp.co.penguin.gourmetsearch.R
 import kotlinx.android.synthetic.main.fragment_search.view.*
+import android.R.id.edit
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+import kotlinx.android.synthetic.main.fragment_search.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +50,13 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         view.searchButton.setOnClickListener {
+            // 検索条件を保存する
+            val pref = PreferenceManager.getDefaultSharedPreferences(activity)
+            val editor = pref.edit()
+            editor.putString("keyword", keywordText.text.toString())
+                    .apply()
+
+            // 検索結果画面に遷移する
             val intent = Intent(activity, SearchResultActivity::class.java)
             startActivity(intent)
         }

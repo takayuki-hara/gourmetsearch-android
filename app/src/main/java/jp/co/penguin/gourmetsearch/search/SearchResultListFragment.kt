@@ -2,6 +2,7 @@ package jp.co.penguin.gourmetsearch.search
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,8 +40,10 @@ class SearchResultListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
+        val word = pref.getString("keyword", "ラーメン")
         val client = GourmetApiClient()
-        client.gourmetSearch(keyword = "焼き鳥", loaded = {
+        client.gourmetSearch(keyword = word, loaded = {
             val adapter = SearchResultAdapter(activity)
             val shoplist = it?.results?.shop
             if (shoplist != null) {
