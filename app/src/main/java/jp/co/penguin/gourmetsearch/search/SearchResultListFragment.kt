@@ -9,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.Toast
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.api.GourmetApiClient
 import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
 
 class SearchResultListFragment : Fragment() {
 
@@ -40,10 +42,9 @@ class SearchResultListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-        val word = pref.getString("keyword", "ラーメン")
+        val keyword = PrefsManager(activity).getKeyword()
         val client = GourmetApiClient()
-        client.gourmetSearch(keyword = word, loaded = {
+        client.gourmetSearch(keyword = keyword, loaded = {
             val adapter = SearchResultAdapter(activity)
             val shoplist = it?.results?.shop
             if (shoplist != null) {

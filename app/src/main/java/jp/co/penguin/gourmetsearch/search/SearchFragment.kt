@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.fragment_search.view.*
 import android.R.id.edit
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import android.widget.TextView
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
@@ -49,12 +51,12 @@ class SearchFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
+        val prefs = PrefsManager(activity)
+        view.keywordText.setText(prefs.getKeyword())
+
         view.searchButton.setOnClickListener {
             // 検索条件を保存する
-            val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-            val editor = pref.edit()
-            editor.putString("keyword", keywordText.text.toString())
-                    .apply()
+            prefs.setKeyword(keywordText.text.toString())
 
             // 検索結果画面に遷移する
             val intent = Intent(activity, SearchResultActivity::class.java)
