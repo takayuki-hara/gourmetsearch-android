@@ -22,6 +22,14 @@ class PrefsManager(context: Context?) {
         saveString(PrefsKey.KEYWORD.key, keyword)
     }
 
+    fun getArea(): Int {
+        return loadInt(PrefsKey.AREA.key)
+    }
+
+    fun setArea(area: Int) {
+        saveInt(PrefsKey.AREA.key, area)
+    }
+
     private fun getDefaultSharedPreferences(context: Context): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(context)
     }
