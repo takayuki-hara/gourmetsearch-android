@@ -50,6 +50,8 @@ class SearchResultListFragment : Fragment() {
                 for (shop in shoplist) {
                     adapter.add(shop)
                 }
+            } else {
+                Toast.makeText(activity, R.string.msg_search_no_result, Toast.LENGTH_SHORT).show()
             }
             this.listView.adapter = adapter
         })
