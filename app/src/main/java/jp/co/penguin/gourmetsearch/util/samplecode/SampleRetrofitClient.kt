@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.data.samplecode
+package jp.co.penguin.gourmetsearch.util.samplecode
 
 import android.util.Log
 import retrofit2.Call

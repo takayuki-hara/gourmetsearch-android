@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.data.samplecode
+package jp.co.penguin.gourmetsearch.util.samplecode
 
 import android.os.AsyncTask
 import okhttp3.OkHttpClient

@@ -1,6 +1,6 @@
 package jp.co.penguin.gourmetsearch.data.api
 
-import jp.co.penguin.gourmetsearch.data.samplecode.GourmetApiService
+import jp.co.penguin.gourmetsearch.util.samplecode.GourmetApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
