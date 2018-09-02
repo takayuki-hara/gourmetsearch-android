@@ -14,6 +14,12 @@
     <string name="btn_label_course">コースあり</string>
 
     <!-- Text -->
+    <string name="text_apikey">APIキー</string>
+    <string name="text_terms">利用規約</string>
+    <string name="text_privacy">プライバシーポリシー</string>
+    <string name="text_guideline">ガイドライン</string>
+    <string name="text_license">オープンソースライセンス</string>
+    <string name="text_version">バージョン</string>
     <string name="text_image">店舗画像</string>
     <string name="text_label_keyword">キーワード</string>
     <string name="text_label_area">エリア</string>
