@@ -11,11 +11,13 @@
 
     <!-- Button -->
     <string name="btn_search">検索する</string>
+    <string name="btn_label_course">コースあり</string>
 
     <!-- Text -->
     <string name="text_image">店舗画像</string>
     <string name="text_label_keyword">キーワード</string>
     <string name="text_label_area">エリア</string>
+    <string name="text_label_course">オプション</string>
     <string name="text_hint_keyword">キーワード（店名、住所、駅名）</string>
     <string name="text_note_keyword">半角スペース区切りでAND検索</string>
 

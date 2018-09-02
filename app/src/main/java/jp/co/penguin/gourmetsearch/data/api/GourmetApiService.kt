@@ -10,5 +10,6 @@ interface GourmetApiService {
     fun gourmetSearch(@Query("key") key: String,
                       @Query("keyword") keyword: String,
                       @Query("large_area") largeArea: String,
+                      @Query("course") course: Boolean,
                       @Query("format") format: String): Call<GourmetSearchResponse>
 }

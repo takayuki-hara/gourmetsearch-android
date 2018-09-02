@@ -63,12 +63,14 @@ class SearchFragment : Fragment() {
         val prefs = PrefsManager(activity)
         view.keywordText.setText(prefs.getKeyword())
         view.areaSpinner.setSelection(prefs.getArea())
+        view.courseCheckBox.isChecked = prefs.getCourse()
 
         // 検索
         view.searchButton.setOnClickListener {
             // 検索条件を保存する
             prefs.setKeyword(keywordText.text.toString())
             prefs.setArea(areaSpinner.selectedItemPosition)
+            prefs.setCourse(courseCheckBox.isChecked)
 
             // 検索結果画面に遷移する
             val intent = Intent(activity, SearchResultActivity::class.java)
