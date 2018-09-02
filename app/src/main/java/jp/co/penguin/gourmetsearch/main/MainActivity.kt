@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_information -> {
-                val fragment = InformationFragment.newInstance(param1 = "", param2 = "")
+                val fragment = InformationFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.contentFrame, fragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
