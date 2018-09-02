@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.fragment_search.view.*
 import android.R.id.edit
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import android.widget.ArrayAdapter
+import android.widget.TextView
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
+import jp.co.penguin.gourmetsearch.search.model.AreaManager
 import kotlinx.android.synthetic.main.fragment_search.*
 
 
@@ -49,12 +53,24 @@ class SearchFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
+        // ビューの準備
+        val data = AreaManager().allData()
+        val adapter = ArrayAdapter(activity, android.R.layout.simple_spinner_item, data)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        view.areaSpinner.adapter = adapter
+
+        // 設定値を反映させる
+        val prefs = PrefsManager(activity)
+        view.keywordText.setText(prefs.getKeyword())
+        view.areaSpinner.setSelection(prefs.getArea())
+        view.courseCheckBox.isChecked = prefs.getCourse()
+
+        // 検索
         view.searchButton.setOnClickListener {
             // 検索条件を保存する
-            val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-            val editor = pref.edit()
-            editor.putString("keyword", keywordText.text.toString())
-                    .apply()
+            prefs.setKeyword(keywordText.text.toString())
+            prefs.setArea(areaSpinner.selectedItemPosition)
+            prefs.setCourse(courseCheckBox.isChecked)
 
             // 検索結果画面に遷移する
             val intent = Intent(activity, SearchResultActivity::class.java)

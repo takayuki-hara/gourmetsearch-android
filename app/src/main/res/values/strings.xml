@@ -1,14 +1,27 @@
 <resources>
     <string name="app_name">Gourmetsearch</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Navigation -->
     <string name="title_search">探す</string>
     <string name="title_mypage">マイページ</string>
     <string name="title_information">アプリ情報</string>
+
+    <!-- Button -->
     <string name="btn_search">検索する</string>
+    <string name="btn_label_course">コースあり</string>
+
+    <!-- Text -->
     <string name="text_image">店舗画像</string>
+    <string name="text_label_keyword">キーワード</string>
+    <string name="text_label_area">エリア</string>
+    <string name="text_label_course">オプション</string>
+    <string name="text_hint_keyword">キーワード（店名、住所、駅名）</string>
+    <string name="text_note_keyword">半角スペース区切りでAND検索</string>
+
+    <!-- Message -->
+    <string name="msg_search_no_result">検索結果は０件でした。条件や設定を見直してください。</string>
+
 </resources>

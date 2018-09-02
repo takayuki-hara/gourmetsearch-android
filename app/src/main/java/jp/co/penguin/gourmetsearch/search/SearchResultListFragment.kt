@@ -9,9 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.Toast
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.api.GourmetApiClient
 import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
+import jp.co.penguin.gourmetsearch.search.model.AreaManager
 
 class SearchResultListFragment : Fragment() {
 
@@ -40,16 +43,20 @@ class SearchResultListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val pref = PreferenceManager.getDefaultSharedPreferences(activity)
-        val word = pref.getString("keyword", "ラーメン")
+        val prefs = PrefsManager(activity)
+        val keyword = prefs.getKeyword()
+        val area = AreaManager().getAreaCode(prefs.getArea())
         val client = GourmetApiClient()
-        client.gourmetSearch(keyword = word, loaded = {
+        val course = prefs.getCourse()
+        client.gourmetSearch(keyword = keyword, area = area, course = course, loaded = {
             val adapter = SearchResultAdapter(activity)
             val shoplist = it?.results?.shop
             if (shoplist != null) {
                 for (shop in shoplist) {
                     adapter.add(shop)
                 }
+            } else {
+                Toast.makeText(activity, R.string.msg_search_no_result, Toast.LENGTH_SHORT).show()
             }
             this.listView.adapter = adapter
         })

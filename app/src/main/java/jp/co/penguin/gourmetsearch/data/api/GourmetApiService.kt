@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.data.samplecode
+package jp.co.penguin.gourmetsearch.util.samplecode
 
 import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
 import retrofit2.Call
@@ -9,7 +9,7 @@ interface GourmetApiService {
     @GET("hotpepper/gourmet/v1")
     fun gourmetSearch(@Query("key") key: String,
                       @Query("keyword") keyword: String,
-                      @Query("lat") lat: Double,
-                      @Query("lng") lng: Double,
+                      @Query("large_area") largeArea: String,
+                      @Query("course") course: Boolean,
                       @Query("format") format: String): Call<GourmetSearchResponse>
 }
