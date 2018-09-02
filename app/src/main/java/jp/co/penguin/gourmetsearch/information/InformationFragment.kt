@@ -9,11 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.information.model.AppInformation
 import jp.co.penguin.gourmetsearch.information.model.AppInformationAction
-import kotlinx.android.synthetic.main.fragment_information.view.*
 
 class InformationFragment : Fragment() {
 
@@ -43,18 +41,6 @@ class InformationFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_information, container, false)
-
-        root.licenseButton.setOnClickListener {
-            val intent = Intent(activity, OssLicensesMenuActivity::class.java)
-            intent.putExtra("title", "オープンソースライセンス")
-            startActivity(intent)
-        }
-
-        root.termButton.setOnClickListener {
-            val intent = Intent(activity, WebContentActivity::class.java)
-            intent.putExtra(EXTRA_DATA, WebContent.TERMS.url)
-            startActivity(intent)
-        }
 
         this.recyclerView = root.findViewById(R.id.recyclerView)
 
