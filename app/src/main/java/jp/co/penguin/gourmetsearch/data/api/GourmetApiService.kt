@@ -9,7 +9,6 @@ interface GourmetApiService {
     @GET("hotpepper/gourmet/v1")
     fun gourmetSearch(@Query("key") key: String,
                       @Query("keyword") keyword: String,
-                      @Query("lat") lat: Double,
-                      @Query("lng") lng: Double,
+                      @Query("large_area") largeArea: String,
                       @Query("format") format: String): Call<GourmetSearchResponse>
 }

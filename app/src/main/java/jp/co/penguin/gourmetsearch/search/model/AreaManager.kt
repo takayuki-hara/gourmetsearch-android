@@ -1,14 +1,15 @@
 package jp.co.penguin.gourmetsearch.search.model
 
 class AreaManager {
-    enum class SearchArea(val rawValue :Int) {
-        TOKYO(0),
-        KYOTO(1),
-        OSAKA(2),
-        FUKUSHIMA(3),
-        FUKUOKA(4),
-        HOKKAIDO(5),
-        OKINAWA(6);
+
+    enum class SearchArea() {
+        TOKYO,
+        KYOTO,
+        OSAKA,
+        FUKUSHIMA,
+        FUKUOKA,
+        HOKKAIDO,
+        OKINAWA;
     }
 
     fun allData(): Array<String> {
@@ -17,7 +18,16 @@ class AreaManager {
         return array
     }
 
-    fun name(area: AreaManager.SearchArea): String {
+    fun getAreaCode(area: Int): String {
+        for(item in SearchArea.values()) {
+            if (item.ordinal == area) {
+                return code(item)
+            }
+        }
+        return ""
+    }
+
+    private fun name(area: SearchArea): String {
         when(area) {
             SearchArea.TOKYO -> return "東京"
             SearchArea.KYOTO -> return "京都"
@@ -30,7 +40,7 @@ class AreaManager {
         }
     }
 
-    fun code(area: AreaManager.SearchArea): String {
+    private fun code(area: SearchArea): String {
         when(area) {
             SearchArea.TOKYO -> return "Z011"
             SearchArea.KYOTO -> return "Z022"
