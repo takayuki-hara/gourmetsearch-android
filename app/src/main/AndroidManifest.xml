@@ -3,7 +3,7 @@
     package="jp.co.penguin.gourmetsearch">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".app.GourmetApplication"
@@ -33,7 +33,8 @@
 
         <activity android:name=".information.WebContentActivity" />
         <activity android:name=".search.SearchResultActivity" />
-        <activity android:name=".search.ShopDetailActivity"></activity>
+        <activity android:name=".search.ShopDetailActivity" />
+        <activity android:name=".information.ApiKeySettingActivity"></activity>
     </application>
 
 </manifest>
