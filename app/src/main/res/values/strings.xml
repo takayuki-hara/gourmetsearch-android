@@ -10,10 +10,20 @@
     <string name="title_information">アプリ情報</string>
 
     <!-- Button -->
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">キャンセル</string>
     <string name="btn_search">検索する</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_delete">消去</string>
     <string name="btn_label_course">コースあり</string>
 
     <!-- Text -->
+    <string name="text_apikey">APIキー</string>
+    <string name="text_terms">利用規約</string>
+    <string name="text_privacy">プライバシーポリシー</string>
+    <string name="text_guideline">ガイドライン</string>
+    <string name="text_license">オープンソースライセンス</string>
+    <string name="text_version">バージョン</string>
     <string name="text_image">店舗画像</string>
     <string name="text_label_keyword">キーワード</string>
     <string name="text_label_area">エリア</string>
@@ -23,5 +33,11 @@
 
     <!-- Message -->
     <string name="msg_search_no_result">検索結果は０件でした。条件や設定を見直してください。</string>
+    <string name="msg_no_apikey_setting">設定されていません</string>
+    <string name="msg_hint_apikey_setting">16文字のAPIキー</string>
+    <string name="msg_memo_apikey_setting">※HptpetterグルメのAPIキーが必要です</string>
+    <string name="msg_error_apikey_setting">APIキーが正しくありません</string>
+    <string name="msg_save_apikey">APIキーを設定しました</string>
+    <string name="msg_delete_apikey">APIキーを消去しました</string>
 
 </resources>

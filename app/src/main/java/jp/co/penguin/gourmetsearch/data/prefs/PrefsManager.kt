@@ -11,7 +11,8 @@ class PrefsManager(context: Context?) {
     enum class PrefsKey(val key: String) {
         KEYWORD("jp.co.penguin.gourmetsearch.data.prefs.KEYWORD"),
         AREA("jp.co.penguin.gourmetsearch.data.AREA"),
-        COURSE("jp.co.penguin.gourmetsearch.data.COURSE")
+        COURSE("jp.co.penguin.gourmetsearch.data.COURSE"),
+        APIKEY("jp.co.penguin.gourmetsearch.data.APIKEY")
     }
 
     fun getKeyword(): String {
@@ -38,6 +39,13 @@ class PrefsManager(context: Context?) {
         saveBoolean(PrefsKey.COURSE.key, isEnable)
     }
 
+    fun getApiKey(): String {
+        return loadString(PrefsKey.APIKEY.key)
+    }
+
+    fun setApiKey(key: String) {
+        saveString(PrefsKey.APIKEY.key, key)
+    }
 
     private fun getDefaultSharedPreferences(context: Context): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(context)
