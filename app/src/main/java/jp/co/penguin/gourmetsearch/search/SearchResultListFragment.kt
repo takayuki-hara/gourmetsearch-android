@@ -47,7 +47,7 @@ class SearchResultListFragment : Fragment() {
         val area = AreaManager().getAreaCode(prefs.getArea())
         val client = GourmetApiClient()
         val course = prefs.getCourse()
-        client.gourmetSearch(keyword = keyword, area = area, course = course, loaded = {
+        client.gourmetSearchRx(keyword = keyword, area = area, course = course, loaded = {
             val adapter = SearchResultAdapter(activity)
             val shoplist = it?.results?.shop
             if (shoplist != null) {
