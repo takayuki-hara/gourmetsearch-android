@@ -1,6 +1,8 @@
 package jp.co.penguin.gourmetsearch.data.api
 
 import android.util.Log
+import jp.co.penguin.gourmetsearch.app.GourmetApplication
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
 import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -8,13 +10,8 @@ import retrofit2.Response
 
 class GourmetApiClient {
     fun gourmetSearch(keyword: String, area: String, course: Boolean, loaded: (GourmetSearchResponse?) -> Unit) {
-        val key = loadApiKey()
-        if (key == null) {
-            loaded(null)
-            return
-        }
         val provider = GourmetApiServiceProvider().createProvider()
-        provider.gourmetSearch(key = key, keyword = keyword, largeArea = area, course = course, format = "json").enqueue(object : Callback<GourmetSearchResponse> {
+        provider.gourmetSearch(key = loadApiKey(), keyword = keyword, largeArea = area, course = course, format = "json").enqueue(object : Callback<GourmetSearchResponse> {
             override fun onFailure(call: Call<GourmetSearchResponse>?, t: Throwable?) {
                 Log.e("Err", "network error!")
             }
@@ -29,8 +26,8 @@ class GourmetApiClient {
     }
 
     // HPG APIのアクセスキー
-    private fun loadApiKey(): String? {
-        // TODO: SharedPreferenceから読む
-        return ""
+    private fun loadApiKey(): String {
+        val context = GourmetApplication.applicationContext()
+        return PrefsManager(context).getApiKey()
     }
 }
