@@ -12,8 +12,13 @@ import java.util.ArrayList
 
 class InformationAdapter(context: Context?) : RecyclerView.Adapter<InformationAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private val items = ArrayList<AppInformation>()
+    private var items = ArrayList<AppInformation>()
     private var listener: View.OnClickListener? = null
+
+    fun refresh(items: ArrayList<AppInformation>) {
+        this.items = items
+        notifyDataSetChanged()
+    }
 
     fun add(appInformation: AppInformation) {
         this.items.add(appInformation)

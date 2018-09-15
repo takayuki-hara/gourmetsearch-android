@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import jp.co.penguin.gourmetsearch.R
+import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
 import jp.co.penguin.gourmetsearch.information.model.AppInformation
 import jp.co.penguin.gourmetsearch.information.model.AppInformationAction
 
@@ -51,19 +52,20 @@ class InformationFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.adapter = InformationAdapter(activity)
-        for(info in appInformations()) {
-            this.adapter.add(info)
-        }
-
         this.adapter.setOnClickListener(this.itemClickListener)
 
         this.recyclerView.adapter = adapter
         this.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.refresh(appInformations())
+    }
+
     private fun appInformations(): ArrayList<AppInformation> {
         val result = arrayListOf<AppInformation>()
-        result.add(AppInformation(AppInformationAction.APIKEY, getString(R.string.text_apikey), null, null))
+        result.add(AppInformation(AppInformationAction.APIKEY, getString(R.string.text_apikey), getApiKeyCellSubTest(), null))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_terms), null, WebContent.TERMS.url))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_privacy), null, WebContent.PRIVACY.url))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_guideline), null, WebContent.GUIDELINE.url))
@@ -72,10 +74,22 @@ class InformationFragment : Fragment() {
         return result
     }
 
+    private fun getApiKeyCellSubTest(): String {
+        val key = PrefsManager(activity).getApiKey()
+        if (key == null || key.length == 0) {
+            return getString(R.string.msg_no_apikey_setting)
+        }
+        return key
+    }
+
     private val itemClickListener = View.OnClickListener { view ->
         val position = recyclerView.getChildAdapterPosition(view)
         val appInformation = adapter.getItem(position)
 
+        if (appInformation.action == AppInformationAction.APIKEY) {
+            val intent = Intent(activity, ApiKeySettingActivity::class.java)
+            startActivity(intent)
+        }
         if (appInformation.action == AppInformationAction.URL) {
             val intent = Intent(activity, WebContentActivity::class.java)
             intent.putExtra(EXTRA_DATA, appInformation.url)
@@ -86,6 +100,5 @@ class InformationFragment : Fragment() {
             intent.putExtra("title", getString(R.string.text_license))
             startActivity(intent)
         }
-
     }
 }

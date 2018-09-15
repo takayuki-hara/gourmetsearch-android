@@ -33,6 +33,7 @@ class ApiKeySettingActivity : AppCompatActivity() {
 
         deleteButton.setOnClickListener {
             prefs.setApiKey("")
+            apiKeyText.setText("")
             Toast.makeText(this, R.string.msg_delete_apikey, Toast.LENGTH_SHORT).show()
         }
     }
