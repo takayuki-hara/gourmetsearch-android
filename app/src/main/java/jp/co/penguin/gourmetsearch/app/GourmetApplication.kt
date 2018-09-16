@@ -2,6 +2,7 @@ package jp.co.penguin.gourmetsearch.app
 
 import android.app.Application
 import android.content.Context
+import io.realm.Realm
 
 class GourmetApplication : Application() {
     init {
@@ -18,6 +19,8 @@ class GourmetApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        Realm.init(this)
     }
 
 }
