@@ -2,6 +2,10 @@ package jp.co.penguin.gourmetsearch.app
 
 import android.app.Application
 import android.content.Context
+import com.facebook.stetho.Stetho
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider
+import io.realm.Realm
+import jp.co.penguin.gourmetsearch.util.samplecode.SampleRealm
 
 class GourmetApplication : Application() {
     init {
@@ -18,6 +22,16 @@ class GourmetApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        //Realm.init(this)
+        Realm.init(this)
+
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                        //.enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                        .build())
     }
 
 }

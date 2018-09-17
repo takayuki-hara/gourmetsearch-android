@@ -1,7 +1,7 @@
 package jp.co.penguin.gourmetsearch.util.samplecode
 
 import io.reactivex.Observable
-import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
+import jp.co.penguin.gourmetsearch.data.api.response.GourmetSearchResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

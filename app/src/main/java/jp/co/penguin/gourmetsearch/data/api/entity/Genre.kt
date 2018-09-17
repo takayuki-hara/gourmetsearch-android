@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.data.entity
+package jp.co.penguin.gourmetsearch.data.api.entity
 
 data class Genre (
         var code: String? = null,

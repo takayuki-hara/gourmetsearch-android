@@ -1,12 +1,12 @@
 package jp.co.penguin.gourmetsearch.data.api
 
 import android.util.Log
-import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
 import jp.co.penguin.gourmetsearch.app.GourmetApplication
 import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
-import jp.co.penguin.gourmetsearch.data.response.GourmetSearchResponse
+import jp.co.penguin.gourmetsearch.data.api.response.GourmetSearchResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +36,7 @@ class GourmetApiClient {
     fun gourmetSearchRx(keyword: String, area: String, course: Boolean, loaded: (GourmetSearchResponse?) -> Unit) {
         disposable = service.gourmetSearchRx(key = loadApiKey(), keyword = keyword, largeArea = area, course = course, format = "json")
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { result -> loaded(result) },
                         { error -> Log.e("Err", "network error!") }

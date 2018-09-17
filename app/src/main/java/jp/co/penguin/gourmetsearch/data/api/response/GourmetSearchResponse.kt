@@ -1,7 +1,7 @@
-package jp.co.penguin.gourmetsearch.data.response
+package jp.co.penguin.gourmetsearch.data.api.response
 
 import com.google.gson.annotations.SerializedName
-import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.api.entity.Shop
 
 data class GourmetSearchResponse (
         var results: GourmetSearchResult

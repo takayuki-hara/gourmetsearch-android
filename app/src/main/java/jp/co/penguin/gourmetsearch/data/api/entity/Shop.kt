@@ -1,4 +1,4 @@
-package jp.co.penguin.gourmetsearch.data.entity
+package jp.co.penguin.gourmetsearch.data.api.entity
 
 import com.google.gson.annotations.SerializedName
 

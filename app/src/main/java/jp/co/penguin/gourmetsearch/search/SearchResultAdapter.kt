@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import jp.co.penguin.gourmetsearch.R
-import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.api.entity.Shop
 
 class SearchResultAdapter(context: FragmentActivity?) : ArrayAdapter<Shop>(context, 0) {
 
@@ -38,7 +38,7 @@ class SearchResultAdapter(context: FragmentActivity?) : ArrayAdapter<Shop>(conte
         val shop = getItem(position)
 
         val vh = view.tag as ViewHolder
-        vh.accessText.text = shop.genre?.name
+        vh.genreText.text = shop.genre?.name
         vh.nameText.text = shop.name
         Glide.with(view).load(shop.logoImage).into(vh.shopImage)
         vh.budgetText.text = shop.budget?.name
