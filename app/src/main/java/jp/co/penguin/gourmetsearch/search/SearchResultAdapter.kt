@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import jp.co.penguin.gourmetsearch.R
-import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.api.entity.Shop
 
 class SearchResultAdapter(context: FragmentActivity?) : ArrayAdapter<Shop>(context, 0) {
 

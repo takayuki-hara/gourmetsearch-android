@@ -11,7 +11,7 @@ import android.widget.ListView
 import android.widget.Toast
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.api.GourmetApiClient
-import jp.co.penguin.gourmetsearch.data.entity.Shop
+import jp.co.penguin.gourmetsearch.data.api.entity.Shop
 import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
 import jp.co.penguin.gourmetsearch.search.model.AreaManager
 
