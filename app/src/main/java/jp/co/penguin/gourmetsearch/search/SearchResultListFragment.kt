@@ -13,6 +13,8 @@ import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.api.GourmetApiClient
 import jp.co.penguin.gourmetsearch.data.api.entity.Shop
 import jp.co.penguin.gourmetsearch.data.prefs.PrefsManager
+import jp.co.penguin.gourmetsearch.data.realm.dao.ShopHistoryDao
+import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
 import jp.co.penguin.gourmetsearch.search.model.AreaManager
 
 class SearchResultListFragment : Fragment() {
@@ -63,6 +65,9 @@ class SearchResultListFragment : Fragment() {
 
     private val itemClickListener = AdapterView.OnItemClickListener { adapterView, _, position, _ ->
         val shop = adapterView.getItemAtPosition(position) as Shop
+
+        // 履歴保存
+        ShopHistoryDao().saveShopObject(shop)
 
         val intent = Intent(activity, ShopDetailActivity::class.java)
         intent.putExtra(EXTRA_DATA, shop.urls?.pc)
