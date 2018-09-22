@@ -20,7 +20,7 @@ class MypageFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm
     override fun getPageTitle(position: Int): CharSequence? {
         when (position) {
             0 -> return "お気に入り"
-            1 -> return "検索履歴"
+            1 -> return "閲覧履歴"
             else -> return "お気に入り"
         }
     }
