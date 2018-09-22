@@ -59,12 +59,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/budget"
-        app:layout_constraintTop_toTopOf="@+id/budget" />
+        app:layout_constraintTop_toTopOf="@+id/budget"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/access"
@@ -84,12 +84,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/access"
-        app:layout_constraintTop_toBottomOf="@+id/budgetText" />
+        app:layout_constraintTop_toBottomOf="@+id/budgetText"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/open"
@@ -110,13 +110,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@android:color/darker_gray"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/open"
-        app:layout_constraintTop_toBottomOf="@+id/accessText" />
+        app:layout_constraintTop_toBottomOf="@+id/accessText"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/memo"
@@ -137,11 +137,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/memo"
-        app:layout_constraintTop_toBottomOf="@+id/openText" />
+        app:layout_constraintTop_toBottomOf="@+id/openText"
+        tools:text="TextView" />
 
 </android.support.constraint.ConstraintLayout>

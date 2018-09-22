@@ -65,7 +65,7 @@ class InformationFragment : Fragment() {
 
     private fun appInformations(): ArrayList<AppInformation> {
         val result = arrayListOf<AppInformation>()
-        result.add(AppInformation(AppInformationAction.APIKEY, getString(R.string.text_apikey), getApiKeyCellSubTest(), null))
+        result.add(AppInformation(AppInformationAction.APIKEY, getString(R.string.text_apikey), getApiKeyCellSubText(), null))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_terms), null, WebContent.TERMS.url))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_privacy), null, WebContent.PRIVACY.url))
         result.add(AppInformation(AppInformationAction.URL, getString(R.string.text_guideline), null, WebContent.GUIDELINE.url))
@@ -74,7 +74,7 @@ class InformationFragment : Fragment() {
         return result
     }
 
-    private fun getApiKeyCellSubTest(): String {
+    private fun getApiKeyCellSubText(): String {
         val key = PrefsManager(activity).getApiKey()
         if (key == null || key.length == 0) {
             return getString(R.string.msg_no_apikey_setting)

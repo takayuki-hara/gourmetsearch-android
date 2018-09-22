@@ -12,10 +12,19 @@ class ShopHistoryDao {
         return max.toLong() + 1
     }
 
-    fun getAll(): Array<ShopHistoryObject>? {
+    fun getAllHistories(): Array<ShopHistoryObject>? {
         val realm = Realm.getDefaultInstance()
         val result = realm.where(ShopHistoryObject::class.java).findAll()
         val shops = result.toTypedArray()
+        return shops
+    }
+
+    fun getShopList(): Array<ShopObject>? {
+        val realm = Realm.getDefaultInstance()
+        val result = realm.where(ShopHistoryObject::class.java).findAll()
+        //Log.d("DAO", result.toString())
+
+        val shops = Array<ShopObject>(result.count(), {result[it].shopObj})
         return shops
     }
 
