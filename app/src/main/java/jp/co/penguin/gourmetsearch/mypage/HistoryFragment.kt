@@ -10,9 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.realm.dao.ShopHistoryDao
-import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
 import jp.co.penguin.gourmetsearch.search.ShopDetailActivity
-import java.util.*
 
 class HistoryFragment : Fragment() {
 
