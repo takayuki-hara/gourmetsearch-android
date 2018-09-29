@@ -40,7 +40,7 @@ class HistoryFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.adapter = SimpleShopAdapter(activity)
-        this.adapter.setOnClickListener(this.itemClickListener)
+        this.adapter.setItemOnClickListener(this.itemClickListener)
 
         this.recyclerView.adapter = adapter
         this.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

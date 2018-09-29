@@ -10,12 +10,12 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
-import java.util.ArrayList
+import kotlinx.android.synthetic.main.item_simple_shop.view.*
 
 class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShopAdapter.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var items: Array<ShopObject> = arrayOf<ShopObject>()
-    private var listener: View.OnClickListener? = null
+    private var itemClickListener: View.OnClickListener? = null
 
     fun refresh(items: Array<ShopObject>) {
         this.items = items
@@ -24,8 +24,8 @@ class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShop
 
     fun getItem(position: Int) = this.items[position]
 
-    fun setOnClickListener(onClickListener: View.OnClickListener) {
-        this.listener = onClickListener
+    fun setItemOnClickListener(onClickListener: View.OnClickListener) {
+        this.itemClickListener = onClickListener
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +35,7 @@ class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShop
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val root = this.inflater.inflate(R.layout.item_simple_shop, parent, false)
 
-        root.setOnClickListener(this.listener)
+        root.setOnClickListener(this.itemClickListener)
 
         return ViewHolder(root)
     }

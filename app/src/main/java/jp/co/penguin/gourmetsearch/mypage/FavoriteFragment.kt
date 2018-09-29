@@ -1,8 +1,6 @@
 package jp.co.penguin.gourmetsearch.mypage
 
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -43,7 +41,7 @@ class FavoriteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.adapter = SimpleShopAdapter(activity)
-        this.adapter.setOnClickListener(this.itemClickListener)
+        this.adapter.setItemOnClickListener(this.itemClickListener)
 
         this.recyclerView.adapter = adapter
         this.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
