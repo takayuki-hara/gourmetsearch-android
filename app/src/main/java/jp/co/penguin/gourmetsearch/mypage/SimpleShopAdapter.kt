@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -50,6 +51,7 @@ class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShop
         }
         holder.budgetText.text = shop.budgetName
         holder.accessText.text = shop.mobileAccess
+        holder.favoriteButton.isSelected = false    // TODO: あとで直す
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -58,6 +60,7 @@ class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShop
         var shopImage: ImageView = itemView.findViewById(R.id.shopImage)
         var budgetText: TextView = itemView.findViewById(R.id.budgetText)
         var accessText: TextView = itemView.findViewById(R.id.accessText)
+        var favoriteButton: ImageButton = itemView.findViewById(R.id.favoriteButton)
     }
 
 }
