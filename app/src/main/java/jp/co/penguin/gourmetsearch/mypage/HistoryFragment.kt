@@ -40,7 +40,15 @@ class HistoryFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         this.adapter = SimpleShopAdapter(activity)
-        this.adapter.setItemOnClickListener(this.itemClickListener)
+        this.adapter.setShopItemListener(object: SimpleShopAdapter.ShopItemListener {
+            override fun onItemClicked(position: Int) {
+                showShopDetail(position)
+            }
+
+            override fun onFavoriteClicked(position: Int) {
+                changeFavorite(position)
+            }
+        })
 
         this.recyclerView.adapter = adapter
         this.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
@@ -58,13 +66,16 @@ class HistoryFragment : Fragment() {
         }
     }
 
-    private val itemClickListener = View.OnClickListener { view ->
-        val position = recyclerView.getChildAdapterPosition(view)
+    private fun showShopDetail(position: Int) {
         val shop = adapter.getItem(position)
-
         val intent = Intent(activity, ShopDetailActivity::class.java)
         intent.putExtra(EXTRA_DATA, shop.shopUrl)
         startActivity(intent)
+    }
+
+    private fun changeFavorite(position: Int) {
+        //val shop = adapter.getItem(position)
+        // TODO; DB処理
     }
 
 }
