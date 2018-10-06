@@ -41,5 +41,7 @@
     <string name="msg_save_apikey">APIキーを設定しました</string>
     <string name="msg_delete_apikey">APIキーを消去しました</string>
     <string name="msg_caution_delete">データを削除します。この操作は取り消せませんがよろしいでしょうか。</string>
+    <string name="msg_regist_favorite">お気に入りに登録しました</string>
+    <string name="msg_delete_favorite">登録を削除しました</string>
 
 </resources>

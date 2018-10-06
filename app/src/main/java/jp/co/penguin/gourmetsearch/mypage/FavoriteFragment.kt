@@ -8,15 +8,18 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import jp.co.penguin.gourmetsearch.R
-import jp.co.penguin.gourmetsearch.data.realm.dao.ShopHistoryDao
+import jp.co.penguin.gourmetsearch.data.realm.dao.ShopFavoriteDao
+import jp.co.penguin.gourmetsearch.data.realm.dto.ShopFavoriteObject
+import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
 import jp.co.penguin.gourmetsearch.search.ShopDetailActivity
+import jp.co.penguin.gourmetsearch.util.AlertDialogFragment
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: SimpleShopAdapter
+    private var items: Array<ShopFavoriteObject>? = null
 
     companion object {
         public const val EXTRA_DATA = "shop.url"
@@ -47,7 +50,7 @@ class FavoriteFragment : Fragment() {
             }
 
             override fun onFavoriteClicked(position: Int) {
-                changeFavorite(position)
+                deleteFavorite(position)
             }
         })
 
@@ -61,9 +64,13 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun setShopsToAdapter() {
-        val data = ShopHistoryDao().getShopList()
-        if (data != null) {
-            adapter.refresh(data)
+        val tmp = ShopFavoriteDao().getAllFavorites()
+        if (tmp != null) {
+            val shops = Array<ShopObject>(tmp.count(), {tmp[it].shopObj})
+            if (shops != null) {
+                adapter.refresh(shops)
+                items = tmp
+            }
         }
     }
 
@@ -74,8 +81,22 @@ class FavoriteFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun changeFavorite(position: Int) {
-        //val shop = adapter.getItem(position)
-        // TODO; DB処理
+    private fun deleteFavorite(position: Int) {
+        val shop = adapter.getItem(position)
+        val dialog = AlertDialogFragment.newInstance(
+                title = getString(R.string.text_caution),
+                message = getString(R.string.msg_caution_delete),
+                lintener = object: AlertDialogFragment.AlertDialogListener {
+            override fun onClickPositive() {
+                // 削除する
+                ShopFavoriteDao().deleteShopObject(shop.id)
+                // リストを更新
+                setShopsToAdapter()
+            }
+            override fun onClickNegative() {
+                // 何もしない
+            }
+        })
+        dialog.show(fragmentManager, "")
     }
 }

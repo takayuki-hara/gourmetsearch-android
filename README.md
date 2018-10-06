@@ -36,3 +36,6 @@ https://github.com/uPhyca/stetho-realm
 </TextView>
 ```
 
+## 課題
+
+- お気に入りの変更をしても上タブ切り替えで更新されない（何らかのバインド機構を導入する必要がありそう）
