@@ -20,7 +20,9 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:minHeight="250dp">
+            android:minHeight="250dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">>
 
             <TextView
                 android:id="@+id/keyword"

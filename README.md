@@ -22,3 +22,20 @@ StethoでRealmのデータを閲覧できるようにするもの。
 あまり更新されてなくてRealmの最新には対応できていない（v3.5.0あたり）。  
 https://github.com/uPhyca/stetho-realm
 
+## メモ
+
+■アプリ起動時にTextEditにフォーカスがあたっているのを回避する
+
+→別のパーツに対してフォーカスを当ててしまう
+
+```xml
+<TextView
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+   <requestFocus /> 
+</TextView>
+```
+
+## 課題
+
+- お気に入りの変更をしても上タブ切り替えで更新されない（何らかのバインド機構を導入する必要がありそう）

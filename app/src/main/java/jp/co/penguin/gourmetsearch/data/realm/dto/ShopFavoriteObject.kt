@@ -4,7 +4,7 @@ import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import java.util.*
 
-open class ShopHistoryObject : RealmObject() {
+open class ShopFavoriteObject : RealmObject() {
     @PrimaryKey
     var id: Int = 0
     var registeredAt: Date = Date()
@@ -12,7 +12,7 @@ open class ShopHistoryObject : RealmObject() {
     lateinit var shopObj: ShopObject
 }
 
-var ShopHistoryObject.shopObj : ShopObject
+var ShopFavoriteObject.shopObj : ShopObject
     get() = shopObj
     set(value) {
         shopObj = value
