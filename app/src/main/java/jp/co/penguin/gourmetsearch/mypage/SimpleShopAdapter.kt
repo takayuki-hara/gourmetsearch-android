@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import jp.co.penguin.gourmetsearch.R
+import jp.co.penguin.gourmetsearch.data.realm.dao.ShopFavoriteDao
 import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
 import kotlinx.android.synthetic.main.item_simple_shop.view.*
 
@@ -49,7 +50,7 @@ class SimpleShopAdapter(val context: Context?) : RecyclerView.Adapter<SimpleShop
         }
         holder.budgetText.text = shop.budgetName
         holder.accessText.text = shop.mobileAccess
-        holder.favoriteButton.isSelected = false    // TODO: あとで直す
+        holder.favoriteButton.isSelected = ShopFavoriteDao().isExistFavorite(shop.id)
     }
 
     class ViewHolder(itemView: View, listener: ShopItemListener?) : RecyclerView.ViewHolder(itemView) {

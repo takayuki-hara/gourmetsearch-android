@@ -6,25 +6,16 @@ import jp.co.penguin.gourmetsearch.data.realm.dto.ShopHistoryObject
 import jp.co.penguin.gourmetsearch.data.realm.dto.ShopObject
 
 class ShopHistoryDao {
-    fun getNextId(): Long {
+    private fun getNextId(): Int {
         val realm = Realm.getDefaultInstance()
         var max = realm.where(ShopHistoryObject::class.java).max("id") ?: 0
-        return max.toLong() + 1
+        return max.toInt() + 1
     }
 
     fun getAllHistories(): Array<ShopHistoryObject>? {
         val realm = Realm.getDefaultInstance()
         val result = realm.where(ShopHistoryObject::class.java).findAll()
         val shops = result.toTypedArray()
-        return shops
-    }
-
-    fun getShopList(): Array<ShopObject>? {
-        val realm = Realm.getDefaultInstance()
-        val result = realm.where(ShopHistoryObject::class.java).findAll()
-        //Log.d("DAO", result.toString())
-
-        val shops = Array<ShopObject>(result.count(), {result[it].shopObj})
         return shops
     }
 
