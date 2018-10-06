@@ -6,7 +6,7 @@ import java.util.*
 
 open class ShopHistoryObject : RealmObject() {
     @PrimaryKey
-    var id: Long = 0
+    var id: Int = 0
     var registeredAt: Date = Date()
     var updatedAt: Date = Date()
     lateinit var shopObj: ShopObject
