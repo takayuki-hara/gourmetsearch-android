@@ -34,7 +34,8 @@
         <activity android:name=".information.WebContentActivity" />
         <activity android:name=".search.SearchResultActivity" />
         <activity android:name=".search.ShopDetailActivity" />
-        <activity android:name=".information.ApiKeySettingActivity"></activity>
+        <activity android:name=".information.ApiKeySettingActivity" />
+        <activity android:name=".tutrial.TutrialActivity"></activity>
     </application>
 
 </manifest>
