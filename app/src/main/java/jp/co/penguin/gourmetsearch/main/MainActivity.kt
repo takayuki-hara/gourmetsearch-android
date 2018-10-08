@@ -1,5 +1,6 @@
 package jp.co.penguin.gourmetsearch.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +8,7 @@ import jp.co.penguin.gourmetsearch.R
 import jp.co.penguin.gourmetsearch.information.InformationFragment
 import jp.co.penguin.gourmetsearch.mypage.MypageFragment
 import jp.co.penguin.gourmetsearch.search.SearchFragment
+import jp.co.penguin.gourmetsearch.tutrial.TutrialActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -51,5 +53,8 @@ class MainActivity : AppCompatActivity() {
 //        task.addOnSuccessListener { token ->
 //            Log.d("FCM", "Refreshed token: " + token)
 //        }
+
+        val intent = Intent(this, TutrialActivity::class.java)
+        startActivity(intent)
     }
 }

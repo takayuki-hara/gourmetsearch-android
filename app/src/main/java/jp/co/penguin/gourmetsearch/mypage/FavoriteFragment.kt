@@ -63,6 +63,10 @@ class FavoriteFragment : Fragment() {
         setShopsToAdapter()
     }
 
+    fun refresh() {
+        setShopsToAdapter()
+    }
+
     private fun setShopsToAdapter() {
         val tmp = ShopFavoriteDao().getAllFavorites()
         if (tmp != null) {

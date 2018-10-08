@@ -5,10 +5,13 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 
 class MypageFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
+    private val favoriteFragment = FavoriteFragment()
+    private val historyFragment = HistoryFragment()
+
     override fun getItem(position: Int): Fragment {
         when (position) {
-            0 -> return FavoriteFragment()
-            1 -> return HistoryFragment()
+            0 -> return favoriteFragment
+            1 -> return historyFragment
             else -> return FavoriteFragment()
         }
     }
@@ -23,5 +26,10 @@ class MypageFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm
             1 -> return "閲覧履歴"
             else -> return "お気に入り"
         }
+    }
+
+    fun refresh() {
+        favoriteFragment.refresh()
+        historyFragment.refresh()
     }
 }
