@@ -64,6 +64,10 @@ class HistoryFragment : Fragment() {
         setShopsToAdapter()
     }
 
+    fun refresh() {
+        setShopsToAdapter()
+    }
+
     private fun setShopsToAdapter() {
         val tmp = ShopHistoryDao().getAllHistories()
         if (tmp != null) {

@@ -20,12 +20,8 @@ class TutrialActivity : AppCompatActivity() {
         val adapter = TutrialAdapter(supportFragmentManager)
         viewPager.adapter = adapter
         viewPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(pos: Int, posOffset: Float, posOffsetPixels: Int) {
-            }
-
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(pos: Int, posOffset: Float, posOffsetPixels: Int) {}
             override fun onPageSelected(pos: Int) {
                 position = pos
                 if (pos == 0) {

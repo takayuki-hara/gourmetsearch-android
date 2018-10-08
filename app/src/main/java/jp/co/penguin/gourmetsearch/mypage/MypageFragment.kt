@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,14 @@ class MypageFragment : Fragment() {
         val fragmentManager : FragmentManager = childFragmentManager
         val adapter = MypageFragmentPagerAdapter(fragmentManager)
         viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(pos: Int, posOffset: Float, posOffsetPixels: Int) {}
+            override fun onPageSelected(pos: Int) {
+                adapter.refresh()
+            }
+
+        })
         tabLayout.setupWithViewPager(viewPager)
     }
 }
