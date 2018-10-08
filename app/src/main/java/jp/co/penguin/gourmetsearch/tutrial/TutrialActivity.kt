@@ -17,5 +17,35 @@ class TutrialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutrial)
 
+        val adapter = TutrialAdapter(supportFragmentManager)
+        viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(pos: Int, posOffset: Float, posOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(pos: Int) {
+                position = pos
+                if (pos == 0) {
+                    footerButton.text = getString(R.string.btn_next)
+                } else {
+                    footerButton.text = getString(R.string.btn_start)
+                }
+            }
+
+        })
+        indicator.setupWithViewPager(viewPager, true)
+
+        pager = viewPager
+
+        footerButton.setOnClickListener {
+            if (position == 0) {
+                pager?.setCurrentItem(1, true)
+            } else {
+                finish()
+            }
+        }
     }
 }
