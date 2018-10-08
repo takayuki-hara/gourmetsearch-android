@@ -16,6 +16,9 @@
     <string name="btn_save">保存</string>
     <string name="btn_delete">消去</string>
     <string name="btn_label_course">コースあり</string>
+    <string name="btn_skip">スキップ</string>
+    <string name="btn_next">次へ</string>
+    <string name="btn_start">はじめる</string>
 
     <!-- Text -->
     <string name="text_caution">注意！！</string>
